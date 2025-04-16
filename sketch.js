@@ -16,6 +16,9 @@ let vars2 = [250,250,250,250,250,250,250,250]
 
 let slider1, slider2, slider3;
 
+
+let audioStarted = false;
+
 function setup() {
   createCanvas(displayWidth, displayHeight)
   for (let i = 0; i <= 5; i++) {
@@ -55,15 +58,8 @@ function setup() {
   fft = new p5.FFT();
   fft.setInput(beat2)
 
-  let audioStarted = false;
 
-function mousePressed() { // needed to get it to work in full screen mode
-    // Start audio on user gesture
-    if (!audioStarted) {
-        userStartAudio();
-        audioStarted = true;
-    }
-}
+
   
 }
 
@@ -172,4 +168,12 @@ class drone {
     this.osc3.amp(0.05)
     this.osc3.start()
   }
+}
+
+function mousePressed() { // needed to get it to work in full screen mode
+    // Start audio on user gesture
+    if (!audioStarted) {
+        userStartAudio();
+        audioStarted = true;
+    }
 }
