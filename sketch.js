@@ -54,6 +54,16 @@ function setup() {
   
   fft = new p5.FFT();
   fft.setInput(beat2)
+
+  let audioStarted = false;
+
+function mousePressed() { // needed to get it to work in full screen mode
+    // Start audio on user gesture
+    if (!audioStarted) {
+        userStartAudio();
+        audioStarted = true;
+    }
+}
   
 }
 
